@@ -1,14 +1,19 @@
 import React from "react";
 import cart from "../assets/cart.svg"
+import { Link } from "react-router-dom";
+import { useCartContext } from "./CartContext";
 
 const CartWidget = () =>{
+
+    const {getItemQuantity} = useCartContext();
+
     return(
-        <div>
-            <button type="button" className="btn colorCartButton position-relative">
-                <img src={cart} alt={"carrito"} width={20} />
-                <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"></span>
+            <button className="btn btn-primary cartWidget">
+                <Link to={'/cart'} className="nav-link">
+                    <i className="fas fa-shopping-cart fa-lg"></i>
+                    {getItemQuantity() > 0 && <span className="cantCarrito">{getItemQuantity()}</span>}
+                </Link>
             </button>
-        </div>
 
     )
 }

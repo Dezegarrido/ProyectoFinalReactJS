@@ -6,14 +6,14 @@ import { getFirestore, doc, getDoc } from "firebase/firestore";
 function ItemDetailContainer(){
     
     const[data,setData] = useState('');
-    const {detalleId} = useParams();
+    const {id} = useParams();
 
     useEffect(()=> {
         const queryDb = getFirestore();
-        const queryDoc = doc(queryDb, 'Productos' , detalleId);
+        const queryDoc = doc(queryDb, 'Productos' , id);
         getDoc(queryDoc)
         .then(res=>setData({id: res.id, ...res.data()}))
-    }, [detalleId])
+    }, [id])
 
     return(
         <div>

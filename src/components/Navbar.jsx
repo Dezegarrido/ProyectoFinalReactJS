@@ -15,18 +15,12 @@ const NavBar = () => {
                             </button>
                             <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                                 <ul className="navbar-nav">
-                                    <Link className="nav-link active" aria-current="page" to="/home">Home</Link>
+                                    <Link className="nav-link active" aria-current="page" to="/">Home</Link>
                                     <li className="nav-item">
-                                    <NavLink className="nav-link" to="/productos">Productos</NavLink>
+                                    <NavLink className="nav-link" to={"/botas"}>Botas</NavLink>
                                     </li>
                                     <li className="nav-item">
-                                    <NavLink className="nav-link" to="/comocomprar">Como Comprar</NavLink>
-                                    </li>
-                                    <li className="nav-item">
-                                    <NavLink className="nav-link" to="/informacion">Informacion</NavLink>
-                                    </li>
-                                    <li className="nav-item">
-                                    <NavLink className="nav-link" to="/contacto">Contacto</NavLink>
+                                    <NavLink className="nav-link" to={"/borcegos"}>Borcegos</NavLink>
                                     </li>
                                 </ul>
                             </div>

@@ -1,7 +1,7 @@
 import React from "react";
-import { useState, useContext } from "react";
+import { useState, useContext, createContext } from "react";
 
-const CartContext=React.createContext('')
+const CartContext= createContext('')
 export const useCartContext=()=> useContext(CartContext);
 
 function CartProvider({children}) {
@@ -19,6 +19,10 @@ function CartProvider({children}) {
     const isInCart=(id) => cart.find(product => product.id===id)? true: false;
 
     const removeProduct=(id) => setCart(cart.filter(product=> product.id !== id));
+
+    const getItemQuantity = () => {
+        return cart.reduce((acumulador,producto) => acumulador += producto.quantity, 0);
+    }
 
     const addProduct = (item,quantity) =>{
         if(isInCart(item.id)){
@@ -39,6 +43,7 @@ function CartProvider({children}) {
             addProduct,
             totalPrice,
             totalProducts,
+            getItemQuantity,
             cart
         }}>
             {children}
